@@ -30,7 +30,10 @@
   echo "<br>";
   echo "<h1>"."Condicional"."</h1>";
 
-  $salario = 5876;  
+
+   /////////////////// If
+
+  //$salario = 5876;  
 
   // if($salario>=4000){
   //   echo "Salario Junior";
@@ -56,9 +59,7 @@ if($x%2==0){
 }else{
   echo "impar";
 }
-  ?>
-</body>
-</html>
+
 
 
 $un1 = 6.2;
@@ -75,7 +76,8 @@ if($media>=7){
 }else{
   echo "recuperação: ".$media;
 }
-*/
+
+////////////////////////////  switch
 
 $nome = "Luiz";
 
@@ -94,3 +96,59 @@ switch ($nome){
 
 
 }
+
+
+////////////////// for e whilw   --  laço de repetição
+
+
+for($x=0; $x<=60; $x++){ // for(variavel; condição; incremento) ação;
+  if($x%2==1){  //Selecionar o numero par
+  echo $x."<br>"; //Imprimir no documento HTML no navegador.
+
+}//Fim if
+}//Fim for
+
+
+
+$x=0;// Variavel de inicialização
+
+while($x<20){ // condição até vinte
+  echo "Senac"."<br>";
+  $x++; //incrememnto de repetiçõ
+}
+
+
+
+////// Vetor = Array, variavél multidimencional com varios valores
+
+$alunos = array("davi","jaragao","luiz","vitor", "vladmir"); /// Array
+
+$totalAlunos = count($alunos); /// count para contar o array
+
+for($x=0; $x<$totalAlunos;$x++){ /// for para percorrer o array
+echo $alunos[$x]."<br>";
+}
+
+
+for($x=numeros; $x=<$totalNumeros; $x++){
+  echo $x;
+}
+
+*/
+
+$numeros = array(23,99,20,11,02,50,40,19,74,12,17,18,04,78,85,05);
+$totalNumeros = count($numeros);
+echo "total de numerus: ".$totalNumeros."<br>";
+for($x=0; $x<$totalNumeros; $x++){
+  if($numeros[$x]%2==0){  //Selecionar o numero par
+    echo $numeros[$x]."<br>"; //Imprimir no documento HTML no navegador.
+
+  }//Fim if
+  }
+
+
+
+
+?>
+</body>
+</html>
