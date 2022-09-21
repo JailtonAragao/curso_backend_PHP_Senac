@@ -51,6 +51,16 @@
       <label for="n2">Numero: 2</label>
       <input type="text" name="n2" id="n2" required>
       <br></br>
+      <!-- select -->
+      <label for="operadores">Operação:</label>
+
+        <select name="operadores" id="operadores">
+          <option value="soma">+</option>
+          <option value="subtracao">-</option>
+          <option value="multiplicacao">*</option>
+          <option value="divisao">/</option>
+        </select>
+      <br></br>
       <input type="submit" name="submit" value="calcular">
     </form>
     <div class="php_calcular">
@@ -61,9 +71,28 @@
         if(isset($_POST["submit"])){ // Usando o metodo isset;;; se existe?
         $numero1 = $_POST["n1"];
         $numero2 = $_POST["n2"];
-        
-        echo "A soma dos 2 valores é :" .$numero1+$numero2;
-        }
+      }
+        $operacao = $_POST["operadores"];
+
+        switch ($operacao){
+
+          case "soma";
+          echo "A soma dos 2 valores é: " .$numero1+$numero2;
+          break;
+
+          case "subtracao";
+          echo "A subtação dos 2 valores é: " .$numero1-$numero2;
+          break;
+
+          case "multiplicacao";
+          echo "A multiplicação dos 2 valores é: " .$numero1*$numero2;
+          break;
+
+          case "divisao";
+          echo "A divisão dos 2 valores é: " .$numero1/$numero2;
+          break;
+
+        }        
         ?>
     </div>
   </div>
