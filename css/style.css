@@ -1,0 +1,35 @@
+body{
+  background: linear-gradient(130deg,gray,blue);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.box-imc{
+  background: rgba(10,10,10,0.4);
+  color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.box-imc input{
+  background: white;
+  color: black;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 2px 5px;
+  border: none;
+  outline: none;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.calcular{
+  margin: auto;
+  padding-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
