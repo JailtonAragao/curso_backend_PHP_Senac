@@ -13,9 +13,16 @@
   </script>
   <title>Cadastro de Senha</title>
   <style>
+
+    header h1{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 600;
+      color: orange;
+    }
     .topo {
       color: white;
-      padding: 5px 380px 5px 20px;
+      display: flex;
+      justify-content: space-around;
 
 
     }
@@ -48,19 +55,17 @@
 <body class="bg-primary bg-gradient">
 
   <header class="navbar bg-dark navbar-dark topo">
-    <a href="index.html"><img src="img/icons8-kenny-mccormick.svg" alt="icon"></a>
+    <a href="index.html"><img src="img/icons8-mulher-estudante-48.png" alt="icon"></a>
 
 
     <h1>SISTEMA DE CADASTRO ESCOLAR</h1>
-
-    <a href="cad_admin.php"><img src="img/lock-fill.svg" alt=""></a>
-
+    <button class="btn btn-warning">Sair</button>
+    
   </header>
   <main>
     <section class="box">
       
-      <a href="login.php" class="btn btn-warning">LOGIN</a>
-      <a href="cad_alunos.php" class="btn btn-warning">Cadastro de Alunos</a>
+    <h1>Aguarde Site em Construção ⛑ 🚧 🏗</h1>
     </section>
   </main>
 </body>
