@@ -1,9 +1,8 @@
 <?php
-// Essa variavel de sessão permitir acessar todas as paginas do sistema sem precisar autenticar. Uma variavel de sessão so finaliza quando o navegor é fechado ou determina o tempo ou loga novamente.
-session_start();
+session_start(); //Inicializa as variavéis de SESSION
 
-include_once 'conexao.php';
-// Esse tem a finção de imperdir o acesso sem passar pelo formulario e verificar se as variaveis estão vazias
+include_once 'conexao.php';// Essa finção conecta ao arquivo conexao com vanco
+
 if(isset($_POST['submit']) and !empty($_POST['login'] and !empty($_POST['senha']))){ //
   $login = $_POST['login'];
   $senha = $_POST['senha'];

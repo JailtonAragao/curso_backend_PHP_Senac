@@ -1,3 +1,29 @@
+<?php
+//Esse metodo que iniciar todas as variavéis de SESSION manter o login ativo no sistema
+session_start();
+include_once 'conexao.php';
+// Verificando se a Variaval SESSION está vazia. Caso vazia devolve para tela de login
+if(isset($_SESSION['login'])and isset($_SESSION['senha'])){
+
+  $login = ucfirst($_SESSION['login']);
+
+}else{
+  // Ativando seguranção caso tente entrar no sistema pela url
+  header('Location:login.php');
+  // Forçando o cancelamento da variavel
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+}
+
+$sql="SELECT * FROM alunos ORDER BY nome ASC";
+
+$resultado = $conexao->query($sql);
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,16 +62,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 80vh;
+      height: 100vh;
+      width: 100%;
+      margin-top: 90px;
     }
 
     .box {
       background: rgba(0, 0, 0, .5);
       border-radius: 10px;
       padding: 20px;
-      width: 600px;
+      width: auto;
       display: flex;
       justify-content: space-around;
+    }
+
+    .table{
+      color:white;
     }
   </style>
 
@@ -56,16 +88,50 @@
 
   <header class="navbar bg-dark navbar-dark topo">
     <a href="index.html"><img src="img/icons8-mulher-estudante-48.png" alt="icon"></a>
-
-
-    <h1>SISTEMA DE CADASTRO ESCOLAR</h1>
-    <button class="btn btn-warning">Sair</button>
+    
+    <h1>SISTEMA DE CADASTRO ESCOLAR <br>
+    <?php
+    echo "BEM VINDO ".$login;
+    ?>
+    </h1>
+    <a href="sair.php"><button class="btn btn-warning">Sair</button></a> 
     
   </header>
   <main>
     <section class="box">
       
-    <h1>Aguarde Site em Construção ⛑ 🚧 🏗</h1>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Serie</th>
+      <th scope="col">Matricula</th>
+      <th scope="col">Data de Nascimento</th>
+      <th scope="col">Telefone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    // USando o mysqli-fetch-assoc para quebra as lista do banco em resultado
+    while($alunos = mysqli_fetch_assoc($resultado)){
+      echo "<tr>";
+      
+      echo "<td>".ucfirst($alunos['nome'])."</td>";
+      echo "<td>".$alunos['email']."</td>";
+      echo "<td>".$alunos['matricula']."</td>";
+      echo "<td>".$alunos['data_nasc']."</td>";
+      echo "<td>".$alunos['escolaridade']."</td>";
+      echo "<td>".$alunos['telefone']."</td>";
+      echo "</tr>";
+    }
+    
+    
+    ?>
+  </tbody>
+</table>
+
     </section>
   </main>
 </body>

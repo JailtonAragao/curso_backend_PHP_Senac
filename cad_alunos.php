@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
 <body class="bg-primary bg-gradient">
 
   <header class="navbar bg-dark navbar-dark topo">
-    <a href="index.html"><img src="/img/estudando.png" alt="icon"></a>
+    <a href="index.html"><img src="img/estudando.png" alt="icon"></a>
     
    
     <h1>SISTEMA DE CADASTRO ESCOLAR <br>
