@@ -96,6 +96,8 @@ if(isset($_POST['submit'])){
 
   
   <button  type="submit" class="btn btn-primary my-5 " name="submit">Cadastrar</button>
+  
+  <a href="listar_prof.php" class="btn btn-warning">Listar Professor</a>
 
   <?php
   if (!empty($resultado)){
