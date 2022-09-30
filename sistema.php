@@ -15,10 +15,15 @@ if(isset($_SESSION['login'])and isset($_SESSION['senha'])){
   unset($_SESSION['senha']);
 }
 
-$sql="SELECT * FROM alunos ORDER BY nome ASC";
+// Consulta sql em na barra de pesquisa
+if(!empty($_GET['search'])){
+  $search = $_GET['search'];
+  $sql = "SELECT * FROM alunos WHERE nome LIKE '%$search%' ORDER BY nome ASC";
+}else{
+  $sql="SELECT * FROM alunos ORDER BY nome ASC";
+}
 
 $resultado = $conexao->query($sql);
-
 
 ?>
 
@@ -64,7 +69,7 @@ $resultado = $conexao->query($sql);
       align-items: center;
       height: 100vh;
       width: 100%;
-      margin-top: 90px;
+      margin-top: 10px;
     }
 
     .box {
@@ -79,6 +84,11 @@ $resultado = $conexao->query($sql);
     .table{
       color:white;
     }
+
+    header form{
+      display: flex;
+      gap: 5px;
+    }
   </style>
 
 </head>
@@ -89,10 +99,15 @@ $resultado = $conexao->query($sql);
   <header class="navbar bg-dark navbar-dark topo">
     <a href="index.html"><img src="img/icons8-mulher-estudante-48.png" alt="icon"></a>
     
-    <h1>SISTEMA DE CADASTRO ESCOLAR <br>
+    <h1>SISTEMA DE CADASTRO ESCOLAR 
     <?php
     echo "BEM VINDO ".$login;
     ?>
+        <!--sando meto GET para realizar pesquisa  -->
+    <form class="form-inline" action="sistema.php" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Aluno" aria-label="Search" name="search">
+      <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
+    </form>
     </h1>
     <a href="sair.php"><button class="btn btn-warning">Sair</button></a> 
     

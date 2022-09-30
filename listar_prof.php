@@ -48,7 +48,7 @@ $resultado = $conexao->query($sql);
       align-items: center;
       height: 100vh;
       width: 100%;
-      margin-top: 260px;
+      margin-top: 10px;
     }
 
     .box {
