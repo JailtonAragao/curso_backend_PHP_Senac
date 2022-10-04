@@ -77,16 +77,18 @@ $resultado = $conexao->query($sql);
       border-radius: 10px;
       padding: 20px;
       width: auto;
-      display: flex;
-      justify-content: space-around;
+      display: grid;
+      
+  
     }
 
     .table{
       color:white;
     }
 
-    header form{
+    .box form{
       display: flex;
+      justify-content: space-around;
       gap: 5px;
     }
   </style>
@@ -103,18 +105,18 @@ $resultado = $conexao->query($sql);
     <?php
     echo "BEM VINDO ".$login;
     ?>
-        <!--sando meto GET para realizar pesquisa  -->
-    <form class="form-inline" action="sistema.php" method="GET">
-      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Aluno" aria-label="Search" name="search">
-      <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
-    </form>
+        
     </h1>
     <a href="sair.php"><button class="btn btn-warning">Sair</button></a> 
     
   </header>
   <main>
     <section class="box">
-      
+      <!--sando meto GET para realizar pesquisa  -->
+    <form class="form-inline" action="sistema.php" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Aluno" aria-label="Search" name="search">
+      <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
+    </form>
     <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -125,6 +127,8 @@ $resultado = $conexao->query($sql);
       <th scope="col">Matricula</th>
       <th scope="col">Data de Nascimento</th>
       <th scope="col">Telefone</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -139,11 +143,13 @@ $resultado = $conexao->query($sql);
       echo "<td>".$alunos['data_nasc']."</td>";
       echo "<td>".$alunos['escolaridade']."</td>";
       echo "<td>".$alunos['telefone']."</td>";
+      echo "<td> <a class='btn btn-sm btn-warning' href='edit.php?id=$alunos[id]'><img src='img/pencil-fill.svg'>"."</a></td>";
+      echo "<td> <a class='btn btn-sm btn-danger' href='delete.php?id=$alunos[id]'><img src='img/trash-fill.svg'>"."</a></td>";
       echo "</tr>";
     }
     
-    
     ?>
+    
   </tbody>
 </table>
 

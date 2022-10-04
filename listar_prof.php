@@ -8,6 +8,21 @@ $resultado = $conexao->query($sql);
 
 ?>
 
+<?php
+
+
+// Consulta sql em na barra de pesquisa
+if(!empty($_GET['search'])){
+  $search = $_GET['search'];
+  $sql = "SELECT * FROM professores WHERE nome LIKE '%$search%' ORDER BY nome ASC";
+}else{
+  $sql="SELECT * FROM professores ORDER BY nome ASC";
+}
+
+$resultado = $conexao->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,12 +72,26 @@ $resultado = $conexao->query($sql);
       padding: 20px;
       width: auto;
       display: flex;
+      flex-direction: column;
       justify-content: space-around;
     }
 
     .table{
       color:white;
+      text-align: center;
     }
+
+    .box form{
+      display: flex;
+      gap: 10px;
+      
+      margin-bottom: 20px;
+
+    }
+    #sair{
+      text-decoration: none;
+    }
+    
   </style>
 
 </head>
@@ -71,19 +100,26 @@ $resultado = $conexao->query($sql);
 <body class="bg-primary bg-gradient">
 
   <header class="navbar bg-dark navbar-dark topo">
+
+  
+
     <a href="index.html"><img src="img/icons8-mulher-estudante-48.png" alt="icon"></a>
     
-    <h1>LISTA PROFESSORES<br>
+    <h1>LISTA PROFESSORES
     <?php
     echo "BEM VINDO "
     ?>
     </h1>
-    <a href="sair.php"><button class="btn btn-warning">Sair</button></a> 
+    
+    <a id="sair" href="sair.php"><button class="btn btn-warning">Sair</button></a> 
     
   </header>
   <main>
     <section class="box">
-      
+    <form class="form-inline" action="listar_prof.php" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Professor" aria-label="Search" name="search">
+      <button class="btn btn-warning my-2 my-sm-0" type="submit" name="submit">Search</button>
+    </form>
     <table class="table">
   <thead class="thead-dark">
     <tr>
